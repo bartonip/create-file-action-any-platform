@@ -8,7 +8,7 @@ inputs:
   filename:
     description: "Full filepath of the file you'd like to create. (e.g. /tmp/log.txt or C:\\log.txt)"
     required: true
-  filedata:
+  data:
     description: "The contents of the file. Default value is empty string."
     required: false
     default: ""
@@ -20,11 +20,11 @@ runs:
   using: "composite"
   steps:
    - name: "Decoding/Creating base64 file"
-     run: echo ${{ inputs.filedata }} | base64 --decode > ${{ inputs.filename }}
+     run: echo ${{ inputs.data }} | base64 --decode > ${{ inputs.filename }}
      shell: bash
      if: ${{ inputs.isBase64 == 'true '}}
    - name: "Creating File"
-     run: echo ${{ inputs.filedata }} > ${{ inputs.filename }}
+     run: echo ${{ inputs.data }} > ${{ inputs.filename }}
      shell: bash
      if: ${{ inputs.isBase64 == 'false '}}
       

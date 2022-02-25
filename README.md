@@ -7,18 +7,19 @@ Inspired by finnp/create-file-action
 #### Usage
 ```workflow
 - uses: "bartonip/create-file-action-any-platform@master"
-      env:
-        FILE_NAME: "dir/fileName.txt"
-        FILE_DATA: "file content"
+      with:
+        filename: "your/file/path/file.txt"
+        data: "SOME SECRET VALUE"
 ```
 
 ## Binary Files
 #### Usage
 ```workflow
 - uses: "bartonip/create-file-action-any-platform@master"
-      env:
-        FILE_NAME: "dir/fileName.txt"
-        FILE_BASE64: "ZWFzdGVyZWdnLWxvbAo="
+      with:
+        filename: "your/file/path/file.gif"
+        data: "R0lGODlhAQABAIAAAP///wAAACHBAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+        isBase64: "true"
 ```
 
 #### File Conversion
